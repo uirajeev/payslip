@@ -1,0 +1,17 @@
+
+// Arrow mixinx
+
+@mixin arrow {
+    will-change: margin-top, margin-bottom;
+    transition: margin-top 0.6s ease;
+
+    :deep .expand-button__arrow {
+        transform: rotate(90deg);
+    }
+
+    :deep path[fill] {
+        fill: $black;
+        will-change: fill;
+        transition: fill 0.6s ease;
+    }
+}

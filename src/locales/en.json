@@ -1,0 +1,11 @@
+{
+  "app_title": "My Payslips",
+  "EURO": "EUR",
+  "USD": "USD",
+  "month": "Month",
+  "payslip": "Payslip",
+  "gross-salary": "Gross salary",
+  "gross-key": "GROSS",
+  "net-pay": "Net pay",
+  "net-pay-key": "NET PAY"
+}
