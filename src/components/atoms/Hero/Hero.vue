@@ -1,5 +1,5 @@
 <template>
-  <h1 class="app-heading">{{ text2 }}</h1>
+  <h1 class="app__title">{{ text2 }}</h1>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
-.app-heading {
+.app__title {
   font-size: $h1-font-size;
   font-weight: $bold;
   line-height: $h1-line-height;

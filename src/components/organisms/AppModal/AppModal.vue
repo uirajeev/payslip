@@ -32,11 +32,8 @@ export default {
 <style lang="scss" scoped>
 .modal {
   &__overlay {
+    @include positionZero();
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     z-index: 98;
     background-color: $lighter-gray;
   }
@@ -48,14 +45,11 @@ export default {
     bottom: 0;
     transform: translate(-50%, calc(-50% + 18px));
     z-index: 99;
-
-    width: 100%;
-    max-width: calc(100vw - 72px);
-    min-height: calc(100vh - 36px);
+    width: calc(100vw - 72px);
+    height: calc(100vh - 36px);
     background-color: $white;
     border-radius: 12px 12px 0 0;
-
-    padding: 25px;
+    padding: $base-padding * 4;
   }
 
   &__close {
@@ -64,9 +58,9 @@ export default {
     color: $white;
     cursor: pointer;
     font-size: $base-font-size * 3;
-    line-height: 48px;
-    height: 48px;
-    width: 48px;
+    line-height: $base-height * 6;
+    height: $base-height * 6;
+    width: $base-height * 6;
     position: absolute;
     text-align: center;
     top: 30px;
@@ -98,6 +92,6 @@ export default {
 
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(-50%) translateY(100vw);
+  transform: translateX(-50%) translateY(100vh);
 }
 </style>

@@ -25,7 +25,7 @@
   </pay-slip-templates>
 
   <app-modal :show-modal="showModal" @on-modal-close="closeModal">
-    <h2>{{ $t("no-data") }}</h2>
+    <div class="no__data">{{ $t("no-data") }}</div>
   </app-modal>
 </template>
 
@@ -118,4 +118,9 @@ export default {
     background-color: $light-yellow;
   }
 }
+.no__data{
+    padding: $base-padding * 5;
+    font-size: $base-font-size * 3;
+    text-align: center;
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <template v-if="paySlips">
+  <template v-if="paySlips.length">
     <div
       class="payslip__container"
       v-for="(item, index) in paySlips"
@@ -59,7 +59,9 @@
       </div>
     </div>
   </template>
-  <div v-else class="payslip__no-data">no dta</div>
+  <div v-else class="payslip__no-data">
+    {{$t('no-filter-data', {year: year, currency: currency})}}
+  </div>
 </template>
 
 <script>
@@ -269,6 +271,11 @@ export default {
       background-color: $black;
       color: $white;
     }
+  }
+  &__no-data{
+    padding: $base-padding * 5;
+    font-size: $base-font-size * 3;
+    text-align: center;
   }
 }
 

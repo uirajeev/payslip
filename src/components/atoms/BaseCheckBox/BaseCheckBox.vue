@@ -1,5 +1,5 @@
 <template>
-  <label class="checkbox flex items-center">
+  <label class="checkbox">
     {{ label }}
     <input
       class="checkbox"
@@ -70,17 +70,13 @@ export default {
   padding-left: $base-padding * 4;
   margin-bottom: 6px;
   cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   font-size: $base-font-size + 4;
 
   input {
+    cursor: pointer;
     position: absolute;
     opacity: 0;
-    cursor: pointer;
     height: 0;
     width: 0;
   }

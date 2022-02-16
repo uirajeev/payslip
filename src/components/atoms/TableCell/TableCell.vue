@@ -1,5 +1,5 @@
 <template>
-  <div class="table-cell" :data-heading="label"><slot></slot></div>
+  <div class="table__cell" :data-heading="label"><slot></slot></div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.table-cell {
+.table__cell {
   display: inline-block;
 }
 </style>

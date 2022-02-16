@@ -9,6 +9,7 @@
   "net-pay": "Net pay",
   "net-pay-key": "NET PAY",
   "no-data": "No preview data.",
+  "no-filter-data": "No data found for year {year} in {currency} currency",
   "view-salary-evolution": "View salary evolution",
   "open": "Open",
   "close": "Close"
