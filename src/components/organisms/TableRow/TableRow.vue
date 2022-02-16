@@ -16,7 +16,7 @@
           ></base-check-box>
         </div>
 
-        <table-cell class="payslip__date">
+        <table-cell class="payslip__date" :label="header[0].label">
           <tooltip :content="index === activeIndex ? $t('close') : $t('open')">
             <span class="payslip__expand-button-container">
               <expand-button
@@ -30,13 +30,13 @@
           }}</span>
         </table-cell>
 
-        <table-cell>{{ item.fileAttachment.file.label }}</table-cell>
+        <table-cell :label="header[1].label">{{ item.fileAttachment.file.label }}</table-cell>
 
-        <table-cell>{{
+        <table-cell :label="header[2].label">{{
           getAmount(item.payslipEntries, $t("gross-key"))
         }}</table-cell>
 
-        <table-cell>{{
+        <table-cell :label="header[3].label">{{
           getAmount(item.payslipEntries, $t("net-pay-key"))
         }}</table-cell>
 
@@ -59,9 +59,7 @@
       </div>
     </div>
   </template>
-  <div v-else class="payslip__no-data">
-    no dta
-  </div>
+  <div v-else class="payslip__no-data">no dta</div>
 </template>
 
 <script>
@@ -88,7 +86,21 @@ export default {
   },
   data () {
     return {
-      activeIndex: null
+      activeIndex: null,
+      header: [
+        {
+          label: this.$t('month')
+        },
+        {
+          label: this.$t('payslip')
+        },
+        {
+          label: this.$t('gross-salary')
+        },
+        {
+          label: this.$t('net-pay')
+        }
+      ]
     };
   },
   components: { TableCell, BaseCheckBox, ExpandButton },
@@ -236,27 +248,58 @@ export default {
   }
 
   &__menu {
-      display: flex;
-      align-items: center;
-      justify-items: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
   }
   &__menu-icon {
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: $base-font-size * 2;
-        height: $base-height * 4;
-        line-height: $base-height * 4;
-        width: $base-height * 4;
-        text-align: center;
-        transition-property: background-color, color;
-        transition-duration: 0.5s;
-        transition-timing-function: ease;
-        will-change: background-color, color;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: $base-font-size * 2;
+    height: $base-height * 4;
+    line-height: $base-height * 4;
+    width: $base-height * 4;
+    text-align: center;
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    will-change: background-color, color;
 
-        &:hover {
-            background-color: $black;
-            color: $white;
-        }
+    &:hover {
+      background-color: $black;
+      color: $white;
     }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .payslip {
+    &__row {
+      padding-bottom: $base-padding * 2;
+      grid-template-areas:
+        "count count count count count action"
+        "date date date date date date"
+        "filename filename filename filename filename filename"
+        "eur eur eur eur eur eur"
+        "usd usd usd usd usd usd";
+      & > div {
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+          padding-left: 100px;
+          position: relative;
+          &::before {
+            content: attr(data-heading);
+            color: $dark-gray;
+            font-weight: $bold;
+            position: absolute;
+            top: 2px;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

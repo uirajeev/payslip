@@ -1,25 +1,52 @@
-
 // Arrow mixinx
 
 @mixin arrow {
-    will-change: margin-top, margin-bottom;
-    transition: margin-top 0.6s ease;
+  will-change: margin-top, margin-bottom;
+  transition: margin-top 0.6s ease;
 
-    :deep .expand-button__arrow {
-        transform: rotate(90deg);
-    }
+  :deep .expand-button__arrow {
+    transform: rotate(90deg);
+  }
 
-    :deep path[fill] {
-        fill: $black;
-        will-change: fill;
-        transition: fill 0.6s ease;
-    }
+  :deep path[fill] {
+    fill: $black;
+    will-change: fill;
+    transition: fill 0.6s ease;
+  }
 }
 
 @mixin tableRow {
-    align-items: center;
-    display: grid;
-    grid-template-columns: 26px 3fr 10fr 2fr 2fr 32px;
-    grid-column-gap: $base-margin * 3;
-    padding: $base-padding - 1 $base-padding * 3;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 26px 3fr 10fr 2fr 2fr 32px;
+  grid-template-areas: "count date filename eur usd action";
+  grid-column-gap: $base-margin * 3;
+  grid-row-gap: $base-margin * 2;
+  padding: $base-padding - 1 $base-padding * 3;
+
+  &>div {
+    &:nth-child(1) {
+      grid-area: count;
+    }
+
+    &:nth-child(2) {
+      grid-area: date;
+    }
+
+    &:nth-child(3) {
+      grid-area: filename;
+    }
+
+    &:nth-child(4) {
+      grid-area: eur;
+    }
+
+    &:nth-child(5) {
+      grid-area: usd;
+    }
+
+    &:nth-child(6) {
+      grid-area: action;
+    }
+  }
 }

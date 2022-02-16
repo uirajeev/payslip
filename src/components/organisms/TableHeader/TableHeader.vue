@@ -1,6 +1,6 @@
 <template>
   <div class="payslip__header">
-    <div class="payslip__header-checkbox">1</div>
+    <div class="payslip__header-checkbox"></div>
 
     <table-cell
       v-for="item in header"
@@ -47,6 +47,22 @@ export default {
     @include tableRow();
     color: $dark-gray;
     font-weight: $bold;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .payslip {
+    &__header {
+
+      & > div {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+           visibility: hidden;
+        }
+      }
+    }
   }
 }
 </style>
