@@ -14,7 +14,7 @@ import TableHeader from '@/components/organisms/TableHeader/TableHeader.vue';
 import TableRow from '@/components/organisms/TableRow/TableRow.vue';
 
 export default {
-  name: 'PaySlipTable',
+  name: 'PayslipTable',
   components: { TableHeader, TableRow },
   props: {
     currency: {

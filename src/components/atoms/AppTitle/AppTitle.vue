@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Hero',
+  name: 'AppTitle',
   props: {
     text: {
       type: String,

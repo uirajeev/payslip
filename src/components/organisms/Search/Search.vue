@@ -1,7 +1,7 @@
 <template>
   <div class="search">
       <arrow arrow="left" @click="prevYear" />
-      <input-text v-model="year" @keyup="searchVal($event)" />
+      <input-text v-model="year" @keyup="search($event)" />
       <arrow arrow="right" @click="nextYear" />
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
       this.year = parseInt(this.year) + 1;
       this.$emit('on-search', this.year);
     },
-    searchVal (event) {
+    search (event) {
       this.$emit('on-search', parseInt(event.target.value));
     }
   },

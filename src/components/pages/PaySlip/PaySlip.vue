@@ -1,28 +1,28 @@
 <template>
-  <pay-slip-templates>
+  <payslip-templates>
     <template #app-title>
-      <hero />
+      <app-title />
     </template>
 
-    <pay-slip-header-templet
+    <payslip-header-template
       :active-index="activeManu"
       :menu-items="menuItems"
       @on-menu-click="menuSelected"
       @on-search="filterData"
-    ></pay-slip-header-templet>
+    ></payslip-header-template>
 
-    <pay-slip-table
+    <payslip-table
       :currency="currencys[activeManu]"
       :year="year"
       :table-row-data="jsonData"
-    ></pay-slip-table>
+    ></payslip-table>
 
     <div class="grpah__icon" @click="openModal">
       <tooltip :content="$t('view-salary-evolution')" position="left">
         <base-icon name="icon-graph"></base-icon>
       </tooltip>
     </div>
-  </pay-slip-templates>
+  </payslip-templates>
 
   <app-modal :show-modal="showModal" @on-modal-close="closeModal">
     <div class="no__data">{{ $t("no-data") }}</div>
@@ -31,16 +31,16 @@
 
 <script>
 import jsonData from '@/data/payslips.json';
-import PaySlipTemplates from '@/components/templates/PaySlipTemplates/PaySlipTemplates.vue';
-import Hero from '@/components/atoms/Hero/Hero.vue';
-import PaySlipHeaderTemplet from '@/components/templates/PaySlipHeaderTemplet/PaySlipHeaderTemplet.vue';
-import PaySlipTable from '@/components/organisms/PaySlipTable/PaySlipTable.vue';
+import PayslipTemplates from '@/components/templates/PayslipTemplates/PayslipTemplates.vue';
+import AppTitle from '@/components/atoms/AppTitle/AppTitle.vue';
+import PayslipHeaderTemplate from '@/components/templates/PayslipHeaderTemplate/PayslipHeaderTemplate.vue';
+import PayslipTable from '@/components/organisms/PayslipTable/PayslipTable.vue';
 import AppModal from '@/components/organisms/AppModal/AppModal.vue';
 import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue';
 import Tooltip from '@/components/atoms/Tooltip/Tooltip.vue';
 
 export default {
-  name: 'PaySlip',
+  name: 'Payslip',
   data () {
     return {
       jsonData,
@@ -51,10 +51,10 @@ export default {
     };
   },
   components: {
-    PaySlipTemplates,
-    Hero,
-    PaySlipHeaderTemplet,
-    PaySlipTable,
+    PayslipTemplates,
+    AppTitle,
+    PayslipHeaderTemplate,
+    PayslipTable,
     AppModal,
     BaseIcon,
     Tooltip
@@ -62,9 +62,9 @@ export default {
   computed: {
     menuItems () {
       const count = this.jsonData.reduce(
-        (obj, item) => {
-          obj[item.payslipEntries[0].currency] += 1;
-          return obj;
+        (payslipCount, item) => {
+          payslipCount[item.payslipEntries[0].currency] += 1;
+          return payslipCount;
         },
         {
           EUR: 0,
@@ -89,9 +89,6 @@ export default {
     },
     openModal () {
       this.showModal = true;
-    },
-    setCount (data) {
-      console.log(data);
     }
   }
 };

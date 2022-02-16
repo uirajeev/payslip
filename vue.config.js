@@ -1,15 +1,15 @@
 module.exports = {
   chainWebpack: (config) => {
-    const svgRule = config.module.rule('svg')
+    const svgRule = config.module.rule('svg');
 
-    svgRule.uses.clear()
+    svgRule.uses.clear();
 
     svgRule
       .use('vue-loader-v16')
       .loader('vue-loader-v16')
       .end()
       .use('vue-svg-loader')
-      .loader('vue-svg-loader')
+      .loader('vue-svg-loader');
 
     config.module.rule('pdf')
       .test(/\.(pdf)(\?.*)?$/)
@@ -17,7 +17,7 @@ module.exports = {
       .loader('file-loader')
       .options({
         name: 'assets/pdf/[name].[hash:8].[ext]'
-      })
+      });
   },
   css: {
     loaderOptions: {
@@ -41,4 +41,4 @@ module.exports = {
       enableLegacy: false
     }
   }
-}
+};

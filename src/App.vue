@@ -1,14 +1,14 @@
 <template>
-  <pay-slip />
+  <payslip />
 </template>
 
 <script>
-import PaySlip from '@/components/pages/PaySlip/PaySlip.vue';
+import Payslip from '@/components/pages/Payslip/Payslip.vue';
 
 export default {
   name: 'App',
   components: {
-    PaySlip
+    Payslip
   }
 };
 </script>

@@ -4,8 +4,8 @@
 * @return String
 * Output December 2020
 */
-const getMonthYear = dateStr => new Date(dateStr).toLocaleString('en-us', { month: 'long', year: 'numeric' })
+const getMonthYear = dateStr => new Date(dateStr).toLocaleString('en-us', { month: 'long', year: 'numeric' });
 
 export {
   getMonthYear
-}
+};

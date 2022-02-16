@@ -14,7 +14,7 @@ import Search from '@/components/organisms/Search/Search.vue';
 import MenuList from '@/components/molecules/MenuList/MenuList.vue';
 
 export default {
-  name: 'PaySlipHeaderTemplet',
+  name: 'PayslipHeaderTemplet',
   props: {
     activeIndex: {
       type: Number,
