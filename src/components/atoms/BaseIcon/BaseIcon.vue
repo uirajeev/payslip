@@ -11,9 +11,10 @@
 </template>
 
 <script>
-import ChevronLeft from '@/assets/icons/ChevronLeft.svg'
-import ChevronRight from '@/assets/icons/ChevronRight.svg'
-import FilterIcon from '@/assets/icons/FilterIcon.svg'
+import ChevronLeft from '@/assets/icons/ChevronLeft.svg';
+import ChevronRight from '@/assets/icons/ChevronRight.svg';
+import FilterIcon from '@/assets/icons/FilterIcon.svg';
+import GraphIcon from '@/assets/icons/GraphIcon.svg';
 
 export default {
   props: {
@@ -27,11 +28,12 @@ export default {
     }
   },
   components: {
-    'chevron-left': ChevronLeft,
-    'chevron-right': ChevronRight,
-    'filter-icon': FilterIcon
+    'icon-chevron-left': ChevronLeft,
+    'icon-chevron-right': ChevronRight,
+    'icon-filter': FilterIcon,
+    'icon-graph': GraphIcon
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

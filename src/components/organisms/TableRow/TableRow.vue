@@ -17,7 +17,7 @@
         </div>
 
         <table-cell class="payslip__date">
-          <tooltip content="Top tooltip">
+          <tooltip :content="index === activeIndex ? $t('close') : $t('open')">
             <span class="payslip__expand-button-container">
               <expand-button
                 class="payslip__expand-button"
@@ -59,14 +59,16 @@
       </div>
     </div>
   </template>
+  <div v-else class="payslip__no-data">
+    no dta
+  </div>
 </template>
 
 <script>
-import jsonData from '@/data/payslips.json'
-import { getMonthYear } from '@/utility/date'
-import TableCell from '@/components/atoms/TableCell/TableCell.vue'
-import BaseCheckBox from '@/components/atoms/BaseCheckBox/BaseCheckBox.vue'
-import ExpandButton from '@/components/molecules/ExpandButton/ExpandButton.vue'
+import { getMonthYear } from '@/utility/date';
+import TableCell from '@/components/atoms/TableCell/TableCell.vue';
+import BaseCheckBox from '@/components/atoms/BaseCheckBox/BaseCheckBox.vue';
+import ExpandButton from '@/components/molecules/ExpandButton/ExpandButton.vue';
 
 export default {
   name: 'TableRow',
@@ -78,50 +80,49 @@ export default {
     year: {
       type: Number,
       default: null
+    },
+    tableRowData: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
     return {
-      paySlipJson: jsonData,
       activeIndex: null
-    }
+    };
   },
   components: { TableCell, BaseCheckBox, ExpandButton },
   computed: {
     paySlips () {
-      return this.paySlipJson.filter(
+      return this.tableRowData.filter(
         (item) =>
           item.payslipEntries[0].currency === this.currency &&
           parseInt(item.payrollDate.split('-')[0]) === this.year
-      )
+      );
     }
   },
   methods: {
     getMonthYear,
     getAmount (item, key) {
-      const { amount, currency } = item.filter((item) => item.key === key)[0]
-      return `${amount.toFixed(2)} ${currency}`
+      const { amount, currency } = item.filter((item) => item.key === key)[0];
+      return `${amount.toFixed(2)} ${currency}`;
     },
     toggleRow (index) {
-      this.activeIndex = this.activeIndex === index ? null : index
+      this.activeIndex = this.activeIndex === index ? null : index;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .payslip {
   &__row {
-    align-items: center;
+    @include tableRow();
     border: 1px solid;
     border-color: $light-gray transparent transparent transparent;
     color: $black;
     cursor: pointer;
-    display: grid;
     font-size: $base-font-size + 2;
-    grid-template-columns: 26px 3fr 10fr 2fr 2fr 32px;
-    grid-column-gap: $base-margin * 3;
-    padding: $base-padding - 1 $base-padding * 3;
     transition-property: background-color, border-color;
     transition-duration: 0.6s;
     transition-timing-function: ease;

@@ -10,11 +10,11 @@
 <script>
 export default {
   name: 'PaySlipTemplates'
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .payslip{
-    margin-top: $base-margin * 4;
+  margin: $base-margin * 4 $base-margin * 4 0 0;
 }
 </style>

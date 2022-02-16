@@ -15,3 +15,11 @@
         transition: fill 0.6s ease;
     }
 }
+
+@mixin tableRow {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 26px 3fr 10fr 2fr 2fr 32px;
+    grid-column-gap: $base-margin * 3;
+    padding: $base-padding - 1 $base-padding * 3;
+}

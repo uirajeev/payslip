@@ -3,23 +3,23 @@
     class="arrow"
     :class="`arrow__${arrow}`"
   >
-      <base-icon :name="`chevron-${arrow}`"></base-icon>
+      <base-icon :name="`icon-chevron-${arrow}`"></base-icon>
   </div>
 </template>
 
 <script>
-import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue'
+import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue';
 
 export default {
   name: 'Arrow',
   props: {
     arrow: String,
     validator: value => {
-      return ['left', 'right'].indexOf(value) !== -1
+      return ['left', 'right'].indexOf(value) !== -1;
     }
   },
   components: { BaseIcon }
-}
+};
 </script>
 
 <style lang="scss" scoped>

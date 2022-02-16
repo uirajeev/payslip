@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Arrow from '@/components/molecules/Arrow/Arrow.vue'
-import InputText from '@/components/atoms/TextInput/TextInput.vue'
+import Arrow from '@/components/molecules/Arrow/Arrow.vue';
+import InputText from '@/components/atoms/TextInput/TextInput.vue';
 
 export default {
   name: 'Search',
@@ -16,25 +16,25 @@ export default {
   data () {
     return {
       year: 2019
-    }
+    };
   },
   methods: {
     prevYear () {
-      this.year--
-      this.$emit('on-search', this.year)
+      this.year--;
+      this.$emit('on-search', this.year);
     },
     nextYear () {
-      this.year = parseInt(this.year) + 1
-      this.$emit('on-search', this.year)
+      this.year = parseInt(this.year) + 1;
+      this.$emit('on-search', this.year);
     },
     searchVal (event) {
-      this.$emit('on-search', parseInt(event.target.value))
+      this.$emit('on-search', parseInt(event.target.value));
     }
   },
   mounted () {
-    this.$emit('on-search', this.year)
+    this.$emit('on-search', this.year);
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

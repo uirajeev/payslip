@@ -1,20 +1,20 @@
 <template>
   <div class="expand-button">
       <span class="expand-button__arrow-top">
-        <base-icon class="expand-button__arrow" name="chevron-left"></base-icon>
+        <base-icon class="expand-button__arrow" name="icon-chevron-left"></base-icon>
       </span>
       <span class="expand-button__arrow-bottom">
-        <base-icon class="expand-button__arrow" name="chevron-right" ></base-icon>
+        <base-icon class="expand-button__arrow" name="icon-chevron-right" ></base-icon>
       </span>
   </div>
 </template>
 
 <script>
-import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue'
+import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue';
 export default {
   components: { BaseIcon },
   name: 'ExpandButton'
-}
+};
 </script>
 
 <style lang="scss" scoped>

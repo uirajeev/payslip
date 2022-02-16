@@ -7,7 +7,7 @@
 export default {
   name: 'TextInput',
   props: ['modelValue']
-}
+};
 </script>
 
 <style lang="scss" scoped>

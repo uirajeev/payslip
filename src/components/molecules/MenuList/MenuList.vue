@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import MenuItem from '@/components/atoms/MenuItem/MenuItem.vue'
+import MenuItem from '@/components/atoms/MenuItem/MenuItem.vue';
 
 export default {
   name: 'MenuList',
@@ -24,7 +24,7 @@ export default {
     }
   },
   components: { MenuItem }
-}
+};
 </script>
 
 <style lang="scss" scoped>

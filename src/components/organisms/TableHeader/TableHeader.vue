@@ -8,14 +8,14 @@
     >{{item.label}}</table-cell>
 
     <div class="payslip__header-menu">
-      <base-icon name="filter-icon" hoverEffect></base-icon>
+      <base-icon name="icon-filter" hoverEffect></base-icon>
     </div>
   </div>
 </template>
 
 <script>
-import TableCell from '@/components/atoms/TableCell/TableCell.vue'
-import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue'
+import TableCell from '@/components/atoms/TableCell/TableCell.vue';
+import BaseIcon from '@/components/atoms/BaseIcon/BaseIcon.vue';
 
 export default {
   components: { TableCell, BaseIcon },
@@ -36,20 +36,16 @@ export default {
           label: this.$t('net-pay')
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .payslip {
   &__header {
-    align-items: center;
+    @include tableRow();
     color: $dark-gray;
-    display: grid;
-    grid-template-columns: 26px 3fr 10fr 2fr 2fr 32px;
-    grid-column-gap: $base-margin * 3;
-    padding: $base-padding - 1 $base-padding * 3;
     font-weight: $bold;
   }
 }

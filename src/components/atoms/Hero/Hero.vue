@@ -14,9 +14,9 @@ export default {
   data () {
     return {
       text2: this.$t('app_title')
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">

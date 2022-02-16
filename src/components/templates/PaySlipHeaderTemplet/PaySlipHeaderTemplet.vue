@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Search from '@/components/organisms/Search/Search.vue'
-import MenuList from '@/components/molecules/MenuList/MenuList.vue'
+import Search from '@/components/organisms/Search/Search.vue';
+import MenuList from '@/components/molecules/MenuList/MenuList.vue';
 
 export default {
   name: 'PaySlipHeaderTemplet',
@@ -29,7 +29,7 @@ export default {
     MenuList,
     Search
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -7,5 +7,9 @@
   "gross-salary": "Gross salary",
   "gross-key": "GROSS",
   "net-pay": "Net pay",
-  "net-pay-key": "NET PAY"
+  "net-pay-key": "NET PAY",
+  "no-data": "No preview data.",
+  "view-salary-evolution": "View salary evolution",
+  "open": "Open",
+  "close": "Close"
 }
