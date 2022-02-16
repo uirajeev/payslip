@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/payslip/' : '/',
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg');
 
@@ -11,7 +12,8 @@ module.exports = {
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
 
-    config.module.rule('pdf')
+    config.module
+      .rule('pdf')
       .test(/\.(pdf)(\?.*)?$/)
       .use('file-loader')
       .loader('file-loader')
